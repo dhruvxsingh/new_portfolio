@@ -18,3 +18,20 @@ body {
   @apply bg-background text-foreground;
   font-feature-settings: "rlig" 1, "calt" 1;
 }
+
+/* Enables smooth scrolling for the whole page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Style for active sections */
+:target {
+  scroll-margin-top: 80px; /* Adjust based on your navbar height */
+}
+
+@layer utilities {
+  .text-silver-shiny {
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff, #a6a6a6);
+  }
+}
