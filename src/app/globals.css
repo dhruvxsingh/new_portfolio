@@ -1,3 +1,4 @@
+@import '@fortawesome/fontawesome-free/css/all.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -31,7 +32,15 @@ html {
 
 @layer utilities {
   .text-silver-shiny {
-    @apply bg-clip-text text-transparent;
-    background: linear-gradient(145deg, #e6e6e6, #ffffff, #a6a6a6);
+    @apply text-transparent;
+    background: linear-gradient(145deg,#c0c0c0,#ffffff,#a0a0a0,#e0e0e0 );
+    -webkit-background-clip: text;
+    background-clip: text;
   }
+  @layer utilities {
+    .text-blue-gradient {
+      @apply text-transparent bg-gradient-to-r from-blue-200 via-blue-400 to-blue-600 bg-clip-text;
+    }
+  }
+
 }

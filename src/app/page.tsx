@@ -1,6 +1,11 @@
 'use client';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls } from '@react-three/drei'
+import { Outlines } from '@react-three/drei'
+import { Basketball } from '@/components/animations/basketball'
+import { Laptop } from '@/components/animations/coder'
 const Droplets = dynamic(
   () => import('@/components/animations/Droplets'),
   { ssr: false }
@@ -25,12 +30,11 @@ const projectCard = {
 export default function Portfolio() {
   return (
     <div className="scroll-container">
-      {/* Animated Navbar */}
       <motion.nav 
         initial="hidden"
         animate="visible"
         transition={{ staggerChildren: 0.1 }}
-        className="fixed w-full z-50 bg-black/80 backdrop-blur-sm p-4 flex justify-center gap-8"
+        className="fixed w-full z-50 bg-black/80 text-silver-shiny backdrop-blur-sm p-4 flex justify-center gap-8"
       >
         {['home', 'work', 'about'].map((item) => (
           <motion.a
@@ -55,13 +59,13 @@ export default function Portfolio() {
           transition={{ duration: 0.8 }}
           className="h-screen flex flex-col justify-center items-center p-8 relative overflow-hidden"
         >
-          <Droplets count={20} /> {/* Only added here */}
+          <Droplets count={20} />
           
           <motion.h1
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-6xl md:text-8xl text-silver-shiny font-bold mb-4 relative z-10"
+            className="text-6xl md:text-8xl text-silver-shiny font-bold mb-2 relative z-10"
           >
             HI, I'M DHRUV
           </motion.h1>
@@ -69,54 +73,96 @@ export default function Portfolio() {
             initial={{ width: 0 }}
             animate={{ width: '50%' }}
             transition={{ delay: 0.5, duration: 1 }}
-            className="h-px bg-white/20 mb-8 relative z-10"
+            className="h-px bg-white/20 mb-1 relative z-10"
           />
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.8 }}
             transition={{ delay: 0.7 }}
-            className="text-xl md:text-2xl mb-8 relative z-10"
+            className="text-xl text-silver-shiny md:text-2xl mb-8 relative z-10"
           >
-            Creative Developer & Designer
+            Tech & Sports Enthusiast
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.5 }}
+            className="flex justify-center gap-20 mt-16 relative z-10 text-3xl"
+          >
+            {[
+              { name: 'GitHub', url: 'https://github.com/dhruvxsingh/', icon: 'fab fa-github' },
+              { name: 'LeetCode', url: 'https://leetcode.com/u/dhruvxsingh', icon: 'fas fa-code' },
+              { name: 'LinkedIn', url: 'https://www.linkedin.com/in/dhruv-kumar-singh-031363289/', icon: 'fab fa-linkedin-in' },
+              { name: 'Gmail', url: 'mailto:dhruv.competent@gmail.com', icon: 'fas fa-envelope' },
+              { name: 'GFG', url: 'https://www.geeksforgeeks.org/user/dhruvxsingh/', icon: 'fas fa-laptop-code' }
+            ].map((item) => (
+              <motion.a
+                key={item.name}
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2, y: -5 }}
+                whileTap={{ scale: 0.9 }}
+                className="text-silver-shiny hover:text-white transition-all"
+                title={item.name}
+              >
+                <i className={`fa ${item.icon}`}></i>
+              </motion.a>
+            ))}
+          </motion.div>
         </motion.section>
 
-        {/* Work Section */}
-        <section 
-          id="work"
-          className="min-h-screen bg-zinc-900 p-8 flex flex-col justify-center"
-        >
-          <motion.h2
-            variants={sectionTitle}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl font-bold mb-12"
-          >
-            Selected Work
-          </motion.h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[1, 2, 3].map((project) => (
-              <motion.div
-                key={project}
-                variants={projectCard}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: project * 0.1 }}
-                className="bg-white/5 p-6 rounded-lg backdrop-blur-sm border border-white/10 hover:border-white/30 transition-all"
-                whileHover={{ y: -5 }}
-              >
-                <h3 className="text-2xl mb-2">Project {project}</h3>
-                <p className="opacity-70">Description of your amazing project</p>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+        <section id="about" className="min-h-screen bg-black p-8 flex flex-col justify-center">
+      <motion.h2 className="text-6xl font-bold text-center text-white mb-20">
+        About Me
+      </motion.h2>
 
-        {/* About Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center h-[60vh]">
+        {/* Basketball */}
+        <motion.div className="h-full flex flex-col items-center">
+          <div className="w-full h-[300px]">
+            <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <pointLight position={[10, 10, 10]} />
+              <Basketball scale={0.8} /> {/* Adjust scale as needed */}
+              <OrbitControls enableZoom={false} />
+              <Outlines 
+                visible
+                thickness={0.01}
+                color="white"
+              />
+            </Canvas>
+          </div>
+          <p className="text-white text-xl mt-4">Baller at Day</p>
+        </motion.div>
+
+        {/* Center Text */}
+        <div className="text-center p-8">
+          <p className="text-white/80 text-lg leading-relaxed">
+            Your about text here...
+          </p>
+        </div>
+
+        {/* Laptop */}
+        <motion.div className="h-full flex flex-col items-center">
+          <div className="w-full h-[300px]">
+            <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
+              <ambientLight intensity={0.5} />
+              <pointLight position={[10, 10, 10]} />
+              <Laptop scale={1.2} rotation-y={Math.PI / 8} />
+              <OrbitControls enableZoom={false} />
+              <Outlines 
+                visible
+                thickness={0.01}
+                color="white"
+              />
+            </Canvas>
+          </div>
+          <p className="text-white text-xl mt-4">Coder at Night</p>
+        </motion.div>
+      </div>
+    </section>
+
         <section
           id="about"
           className="min-h-screen bg-black p-8 flex flex-col justify-center"
@@ -129,7 +175,7 @@ export default function Portfolio() {
             className="max-w-4xl mx-auto"
           >
             <motion.h2 
-              className="text-4xl md:text-6xl font-bold mb-8"
+              className="text-4xl text-silver-shiny md:text-6xl font-bold mb-8"
               initial={{ x: -100 }}
               whileInView={{ x: 0 }}
               transition={{ type: 'spring' }}
@@ -137,7 +183,7 @@ export default function Portfolio() {
               About Me
             </motion.h2>
             <motion.p
-              className="text-lg opacity-80 leading-relaxed"
+              className="text-lg text-silver-shiny opacity-80 leading-relaxed"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 0.8 }}
               transition={{ delay: 0.3 }}
