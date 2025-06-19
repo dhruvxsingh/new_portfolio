@@ -1,9 +1,9 @@
 'use client';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import { Environment } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
-import { Outlines } from '@react-three/drei'
 import { Basketball } from '@/components/animations/basketball'
 import { Laptop } from '@/components/animations/coder'
 const Droplets = dynamic(
@@ -50,7 +50,7 @@ export default function Portfolio() {
         ))}
       </motion.nav>
 
-      <main className="min-h-screen bg-black pt-16">
+      <main className="min-h-screen bg-black pt-16 overflow-hidden">
         {/* Hero Section with Droplets */}
         <motion.section
           id="home"
@@ -112,55 +112,54 @@ export default function Portfolio() {
           </motion.div>
         </motion.section>
 
-        <section id="about" className="min-h-screen bg-black p-8 flex flex-col justify-center">
-      <motion.h2 className="text-6xl font-bold text-center text-white mb-20">
-        About Me
-      </motion.h2>
+        <section id="about" className="min-h-screen bg-black p-8 flex flex-col ">
+      <motion.h2 
+              className="text-4xl text-silver-shiny md:text-6xl font-bold mb-14 text-center"
+              initial={{ x: -100 }}
+              whileInView={{ x: 0 }}
+              transition={{ type: 'spring' }}
+            >
+              About Me
+            </motion.h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center h-[60vh]">
-        {/* Basketball */}
-        <motion.div className="h-full flex flex-col items-center">
-          <div className="w-full h-[300px]">
-            <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} />
-              <Basketball scale={0.8} /> {/* Adjust scale as needed */}
-              <OrbitControls enableZoom={false} />
-              <Outlines 
-                visible
-                thickness={0.01}
-                color="white"
-              />
-            </Canvas>
-          </div>
-          <p className="text-white text-xl mt-4">Baller at Day</p>
-        </motion.div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start"> {/* Changed to items-start */}
+  {/* Basketball - First Column */}
+  <motion.div className="flex flex-col items-center">
+    <p className="text-silver-shiny text-xl mt-4">Rotate(3D)</p>
+    <div className="w-full h-[300px]">
+      <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+        <Environment preset="studio" background blur={0.2} />
+        <Basketball scale={0.8} rotation={[0, Math.PI/1.6, 0]} />
+        <OrbitControls enableZoom={false} />
+      </Canvas>
+    </div>
+    <p className="text-silver-shiny text-xl mt-4">Baller at Day</p>
+  </motion.div>
 
-        {/* Center Text */}
-        <div className="text-center p-8">
-          <p className="text-white/80 text-lg leading-relaxed">
-            Your about text here...
-          </p>
-        </div>
+  {/* Center Text - Second Column */}
+  <div className="flex flex-col justify-center h-[300px]"> {/* Added fixed height */}
+    <motion.p className="text-lg bg-gradient-to-r from-gray-500 via-gray-300 to-gray-500 bg-clip-text text-transparent"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 0.8 }}
+              transition={{ delay: 0.3 }}
+              >
+      I'm a B.Tech graduate from IIT and national-level basketball player who brings the same precision and competitive drive to software development. My expertise spans full-stack development and machine learning, creating solutions that perform under pressure. From architecting scalable web applications to training intelligent models, I combine technical excellence with the strategic thinking and teamwork learned on the basketball court. I code in JavaScript, Python, React, and Node.js, always delivering solutions that are both functional and exceptional.
+    </motion.p>
+  </div>
 
-        {/* Laptop */}
-        <motion.div className="h-full flex flex-col items-center">
-          <div className="w-full h-[300px]">
-            <Canvas camera={{ position: [0, 0, 8], fov: 50 }}>
-              <ambientLight intensity={0.5} />
-              <pointLight position={[10, 10, 10]} />
-              <Laptop scale={1.2} rotation-y={Math.PI / 8} />
-              <OrbitControls enableZoom={false} />
-              <Outlines 
-                visible
-                thickness={0.01}
-                color="white"
-              />
-            </Canvas>
-          </div>
-          <p className="text-white text-xl mt-4">Coder at Night</p>
-        </motion.div>
-      </div>
+  {/* Laptop - Third Column */}
+  <motion.div className="flex flex-col items-center">
+    <p className="text-silver-shiny text-xl mt-4">Rotate(3D)</p>
+    <div className="w-full h-[300px]">
+      <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
+        <Environment preset="studio" background blur={0.2} />
+        <Laptop scale={0.8} rotation={[0.5, -0.5, 0]} />
+        <OrbitControls enableZoom={false} />
+      </Canvas>
+    </div>
+    <p className="text-silver-shiny text-xl mt-4">Coder at Night</p>
+  </motion.div>
+</div>
     </section>
 
         <section
