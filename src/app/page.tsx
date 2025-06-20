@@ -162,36 +162,57 @@ export default function Portfolio() {
 </div>
     </section>
 
-        <section
-          id="about"
-          className="min-h-screen bg-black p-8 flex flex-col justify-center"
-        >
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-4xl mx-auto"
-          >
-            <motion.h2 
-              className="text-4xl text-silver-shiny md:text-6xl font-bold mb-8"
-              initial={{ x: -100 }}
-              whileInView={{ x: 0 }}
-              transition={{ type: 'spring' }}
-            >
-              About Me
-            </motion.h2>
-            <motion.p
-              className="text-lg text-silver-shiny opacity-80 leading-relaxed"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 0.8 }}
-              transition={{ delay: 0.3 }}
-            >
-              Your professional introduction goes here. Highlight your skills, 
-              experience, and what makes you unique as a designer/developer.
-            </motion.p>
-          </motion.div>
-        </section>
+        {/* Tech Stack Section */}
+<section id="tech-stack" className="min-h-screen bg-black p-8 flex flex-col">
+  <motion.h2 
+    className="text-4xl text-silver-shiny md:text-6xl font-bold mb-14 text-center"
+    initial={{ x: -100 }}
+    whileInView={{ x: 0 }}
+    transition={{ type: 'spring' }}
+  >
+    Tech Stack
+  </motion.h2>
+
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 max-w-6xl mx-auto">
+    {[
+      { name: 'Next.js', icon: 'fab fa-react' },
+      { name: 'TypeScript', icon: 'fas fa-code' },
+      { name: 'Three.js', icon: 'fas fa-cube' },
+      { name: 'Flutter', icon: 'fab fa-mobile' },
+      { name: 'Firebase', icon: 'fas fa-fire' },
+      { name: 'Supabase', icon: 'fas fa-database' },
+      { name: 'JavaScript', icon: 'fab fa-js' },
+      { name: 'C++', icon: 'fas fa-file-code' },
+      { name: 'Python', icon: 'fab fa-python' },
+      { name: 'HTML', icon: 'fab fa-html5' },
+      { name: 'CSS', icon: 'fab fa-css3-alt' },
+      { name: 'Tailwind', icon: 'fas fa-paint-brush' },
+      { name: 'MySQL', icon: 'fas fa-database' },
+      { name: 'PostgreSQL', icon: 'fas fa-database' },
+      { name: 'Postman', icon: 'fas fa-cloud' },
+      { name: 'C', icon: 'fas fa-file-code' },
+      { name: 'Node.js', icon: 'fab fa-node-js' },
+      { name: 'FastAPI', icon: 'fas fa-bolt' },
+      { name: 'Flask', icon: 'fas fa-flask' },
+      { name: 'RESTful API', icon: 'fas fa-network-wired' },
+      { name: 'React', icon: 'fab fa-react' },
+    ].map((tech, index) => (
+      <motion.div
+        key={tech.name}
+        variants={projectCard}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ delay: index * 0.05 }}
+        className="bg-gray-900/50 hover:bg-gray-800/80 border border-gray-700 rounded-lg p-4 aspect-square flex flex-col items-center justify-center gap-2 transition-all"
+        whileHover={{ y: -5, scale: 1.05 }}
+      >
+        <i className={`${tech.icon} text-silver-shiny text-4xl`}></i>
+        <span className="text-silver-shiny text-center">{tech.name}</span>
+      </motion.div>
+    ))}
+  </div>
+</section>
       </main>
     </div>
   );
