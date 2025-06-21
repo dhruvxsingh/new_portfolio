@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import { Environment } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
+import ExperienceSection from '@/components/ExperienceSection';
 import { OrbitControls } from '@react-three/drei'
 import { Basketball } from '@/components/animations/basketball'
 import { Laptop } from '@/components/animations/coder'
@@ -27,7 +28,11 @@ const projectCard = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1 }
 };
-
+const boxes = [
+  { label: 'Box One', color: 'bg-red-500' },
+  { label: 'Box Two', color: 'bg-blue-500' },
+  { label: 'Box Three', color: 'bg-green-500' },
+];
 export default function Portfolio() {
   return (
     <LoadingWrapper>
@@ -54,7 +59,7 @@ export default function Portfolio() {
           ))}
         </motion.nav>
 
-        <main className="min-h-screen bg-black pt-16 overflow-hidden">
+        <main className="min-h-screen bg-black pt-16 ">
           {/* Hero Section with Droplets */}
           <motion.section
             id="home"
@@ -118,7 +123,7 @@ export default function Portfolio() {
 
           <section id="about" className="min-h-screen bg-black p-8 flex flex-col ">
         <motion.h2 
-                className="text-4xl text-silver-shiny md:text-6xl font-bold mb-14 text-center"
+                className="text-4xl sticky top-0 text-silver-shiny md:text-6xl font-bold mb-14 text-center"
                 initial={{ x: -100 }}
                 whileInView={{ x: 0 }}
                 transition={{ type: 'spring' }}
@@ -217,6 +222,7 @@ export default function Portfolio() {
       ))}
     </div>
   </section>
+  <ExperienceSection />
         </main>
       </div>
       )}
