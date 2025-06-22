@@ -4,6 +4,7 @@ import dynamic from 'next/dynamic';
 import { Environment } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import ExperienceSection from '@/components/ExperienceSection';
+import ProjectsSection from '@/components/ProjectSection';
 import { OrbitControls } from '@react-three/drei'
 import { Basketball } from '@/components/animations/basketball'
 import { Laptop } from '@/components/animations/coder'
@@ -223,6 +224,7 @@ export default function Portfolio() {
     </div>
   </section>
   <ExperienceSection />
+  <ProjectsSection/>
         </main>
       </div>
       )}
