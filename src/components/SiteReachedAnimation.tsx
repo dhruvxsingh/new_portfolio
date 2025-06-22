@@ -139,7 +139,7 @@ export default function ThisCantBeReached() {
             be reached
           </span>
           <span className="text-gray-500 text-md">
-            <span className="font-bold">www.anaflous.com </span>
+            <span className="font-bold">www.google.com </span>
             unexpectedly{" "}
             {ShowText ? (
               <motion.span

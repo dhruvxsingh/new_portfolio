@@ -17,19 +17,3 @@ declare global {
     }
   }
 }
-// declare module 'three-stdlib' {
-//   interface GLTF {
-//     nodes: {
-//       laptop?: THREE.Mesh;
-//       screen?: THREE.Mesh;
-//       basketball?: THREE.Mesh;
-//       // Add other models here as needed
-//     };
-//     materials: {
-//       aluminium?: THREE.MeshStandardMaterial;
-//       screen?: THREE.MeshStandardMaterial;
-//       basketball_mat?: THREE.MeshStandardMaterial;
-//       // Add other materials here as needed
-//     };
-//   }
-// }
