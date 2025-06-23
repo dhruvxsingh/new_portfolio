@@ -32,7 +32,7 @@ const projects: Project[] = [
     image: '/img2.jpg',
     tools: ['Vite', 'Flask', 'Supabase', 'Typescript'],
     githubUrl: 'https://github.com/dhruvxsingh/intern',
-    liveUrl: 'https://example.com',
+    liveUrl: 'https://intern-frontend-eight.vercel.app/',
   },
   {
     id: 3,
@@ -50,7 +50,7 @@ const projects: Project[] = [
     image: '/img4.jpg',
     tools: ['Nextjs', 'TailwindCss', 'FramerMotion', 'EmailJs', 'Animation'],
     githubUrl: 'https://github.com/dhruvxsingh/new_portfolio',
-    liveUrl: 'https://example.com',
+    liveUrl: 'https://dhruvxsingh.vercel.app/',
   },
   {
     id: 5,
