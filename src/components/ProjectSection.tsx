@@ -74,8 +74,8 @@ const projects: Project[] = [
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <div className="flex-shrink-0 w-[calc(100vw-128px)] max-w-[450px] h-[500px] mr-8">
-      <div className="h-full bg-gray-800/40 backdrop-blur-lg rounded-2xl overflow-hidden border border-gray-700/50 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:border-gray-600/50 group">
+    <div id ="project" className="flex-shrink-0 w-[calc(100vw-128px)] max-w-[450px] h-[500px] mr-8">
+      <div className="h-full bg-gray-800/40 backdrop-blur-lg rounded-2xl overflow-hidden border border-gray-200 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:border-gray-200 group">
         {/* Image Section - 45% */}
         <div className="relative h-[45%] w-full overflow-hidden bg-gradient-to-br from-gray-700/50 to-gray-800/50">
           <Image

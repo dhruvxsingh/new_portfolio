@@ -20,5 +20,8 @@ module.exports = {
     scale: false,
     rotate: false,
     skew: false
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
   }
 }

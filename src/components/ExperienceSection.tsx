@@ -50,7 +50,7 @@ const ExperienceSection = () => {
   }));
 
   return (
-    <div ref={containerRef} className="h-[500vh] relative">
+    <div ref={containerRef} id = "experience" className="h-[500vh] relative">
       <motion.div
         style={{ y: containerY }}
         className="sticky top-0 left-0 w-full h-screen z-10"

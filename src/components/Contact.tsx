@@ -90,7 +90,7 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section className="min-h-screen relative">
+    <section id = "contact" className="min-h-screen relative">
       <div className="container mx-auto px-6 py-28 pb-0">
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -108,7 +108,7 @@ const ContactSection: React.FC = () => {
             <p className="text-xl text-gray-300 leading-relaxed">
               Feel free to drop your message and I will get back to you soon!
             </p>
-            <p className="text-gray-400">
+            <p className="text-gray-gradient">
               Whether you have a question, want to collaborate, or just want to say hi, 
               I'd love to hear from you. Fill out the form and I'll respond as quickly as possible.
             </p>
@@ -207,7 +207,7 @@ const ContactSection: React.FC = () => {
         <div className="container mx-auto px-6 py-8">
           <div className="flex flex-col items-center gap-2">
             {/* Social Links */}
-            <div className="flex items-center gap-6">
+            <div className="flex items-center gap-10">
               {socialLinks.map((link) => (
                 <motion.a
                   key={link.name}

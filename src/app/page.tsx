@@ -7,6 +7,7 @@ import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectSection';
 import Contact from '@/components/Contact'
 import { OrbitControls } from '@react-three/drei'
+import { useState, useEffect } from 'react';
 import { Basketball } from '@/components/animations/basketball'
 import { Laptop } from '@/components/animations/coder'
 import LoadingWrapper from '@/components/LoadingWrapper';
@@ -36,6 +37,14 @@ const boxes = [
   { label: 'Box Three', color: 'bg-green-500' },
 ];
 export default function Portfolio() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 300);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   return (
     <LoadingWrapper>
         {(loadingComplete) => (
@@ -47,18 +56,36 @@ export default function Portfolio() {
           transition={{ staggerChildren: 0.1 }}
           className="fixed w-full z-50 bg-black/80 text-silver-shiny backdrop-blur-sm p-4 flex justify-center gap-8"
         >
-          {['home', 'work', 'about'].map((item) => (
-            <motion.a
-              key={item}
-              variants={navItem}
-              href={`#${item}`}
-              className="hover:text-gray-300 transition-colors capitalize"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              {item}
-            </motion.a>
-          ))}
+          <motion.div
+    initial={{ opacity: 0 }}
+    animate={{ 
+      opacity: isScrolled ? 1 : 0,
+      y: isScrolled ? 0 : 20
+    }}
+    transition={{ duration: 0.3 }}
+    className="absolute left-4 text-2xl font-bold text-silver-shiny"
+  >
+    DHRUV
+  </motion.div>
+          {[
+              { id: 'home', label: 'Home' },
+              { id: 'about', label: 'About' },
+              { id: 'tech-stack', label: 'Tech Stack' },
+              { id: 'experience', label: 'Experience' },
+              { id: 'project', label: 'Projects' },
+              { id: 'contact', label: 'Contact' }
+            ].map((item) => (
+              <motion.a
+                key={item.id}
+                variants={navItem}
+                href={`#${item.id}`}
+                className="hover:text-gray-300 transition-colors"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {item.label}
+              </motion.a>
+            ))}
         </motion.nav>
 
         <main className="min-h-screen bg-black pt-16 ">
