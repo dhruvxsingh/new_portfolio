@@ -110,7 +110,7 @@ const ContactSection: React.FC = () => {
             </p>
             <p className="text-gray-gradient">
               Whether you have a question, want to collaborate, or just want to say hi, 
-              I'd love to hear from you. Fill out the form and I'll respond as quickly as possible.
+              I&apos;d love to hear from you. Fill out the form and I&apos;ll respond as quickly as possible.
             </p>
           </motion.div>
 
@@ -185,7 +185,7 @@ const ContactSection: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="text-green-400 text-center"
                 >
-                  Message sent successfully! I'll get back to you soon.
+                  Message sent successfully! I&apos;ll get back to you soon.
                 </motion.p>
               )}
               {submitStatus === 'error' && (

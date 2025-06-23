@@ -22,20 +22,12 @@ const navItem = {
   visible: { opacity: 1, y: 0 }
 };
 
-const sectionTitle = {
-  hidden: { opacity: 0, x: -50 },
-  visible: { opacity: 1, x: 0 }
-};
 
 const projectCard = {
   hidden: { opacity: 0, scale: 0.8 },
   visible: { opacity: 1, scale: 1 }
 };
-const boxes = [
-  { label: 'Box One', color: 'bg-red-500' },
-  { label: 'Box Two', color: 'bg-blue-500' },
-  { label: 'Box Three', color: 'bg-green-500' },
-];
+
 export default function Portfolio() {
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
@@ -47,7 +39,7 @@ export default function Portfolio() {
   }, []);
   return (
     <LoadingWrapper>
-        {(loadingComplete) => (
+        {() => (
 
       <div className="scroll-container">
         <motion.nav 
@@ -105,7 +97,7 @@ export default function Portfolio() {
               transition={{ delay: 0.2 }}
               className="text-6xl md:text-8xl text-silver-shiny font-bold mb-2 relative z-10"
             >
-              HI, I'M DHRUV
+              HI, I&apos;M DHRUV
             </motion.h1>
             <motion.div
               initial={{ width: 0 }}
@@ -181,7 +173,7 @@ export default function Portfolio() {
                 whileInView={{ opacity: 0.8 }}
                 transition={{ delay: 0.3 }}
                 >
-        I'm a B.Tech graduate from IIT and national-level basketball player who brings the same precision and competitive drive to software development. My expertise spans full-stack development and machine learning, creating solutions that perform under pressure. From architecting scalable web applications to training intelligent models, I combine technical excellence with the strategic thinking and teamwork learned on the basketball court. I code in JavaScript, Python, React, and Node.js, always delivering solutions that are both functional and exceptional.
+        I&apos;m a B.Tech graduate from IIT and national-level basketball player who brings the same precision and competitive drive to software development. My expertise spans full-stack development and machine learning, creating solutions that perform under pressure. From architecting scalable web applications to training intelligent models, I combine technical excellence with the strategic thinking and teamwork learned on the basketball court. I code in JavaScript, Python, React, and Node.js, always delivering solutions that are both functional and exceptional.
       </motion.p>
     </div>
 

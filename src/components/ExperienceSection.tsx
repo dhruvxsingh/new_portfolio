@@ -44,10 +44,21 @@ const ExperienceSection = () => {
   const containerY = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], ["0vh", "0vh", "0vh", "-100vh"]);
   const titleOpacity = useTransform(scrollYProgress, [0, 0.2], [0, 1]);
 
-  const cardAnimations = experiences.map((_, i) => ({
-    y: useTransform(scrollYProgress, [0.3 + i * 0.15, 0.45 + i * 0.15], [0, -400]),
-    opacity: useTransform(scrollYProgress, [0.3 + i * 0.15, 0.45 + i * 0.15], [1, 0]),
-  }));
+  // Create transforms for each card individually
+  const card0Y = useTransform(scrollYProgress, [0.3, 0.45], [0, -400]);
+  const card0Opacity = useTransform(scrollYProgress, [0.3, 0.45], [1, 0]);
+  
+  const card1Y = useTransform(scrollYProgress, [0.45, 0.6], [0, -400]);
+  const card1Opacity = useTransform(scrollYProgress, [0.45, 0.6], [1, 0]);
+  
+  const card2Y = useTransform(scrollYProgress, [0.6, 0.75], [0, -400]);
+  const card2Opacity = useTransform(scrollYProgress, [0.6, 0.75], [1, 0]);
+
+  const cardTransforms = [
+    { y: card0Y, opacity: card0Opacity },
+    { y: card1Y, opacity: card1Opacity },
+    { y: card2Y, opacity: card2Opacity }
+  ];
 
   return (
     <div ref={containerRef} id = "experience" className="h-[500vh] relative">
@@ -73,8 +84,8 @@ const ExperienceSection = () => {
                 <motion.div
                   key={index}
                   style={{
-                    y: cardAnimations[index].y,
-                    opacity: cardAnimations[index].opacity,
+                    y: cardTransforms[index].y,
+                    opacity: cardTransforms[index].opacity,
                     left: `${index * 50}px`,
                     zIndex: experiences.length - index,
                   }}

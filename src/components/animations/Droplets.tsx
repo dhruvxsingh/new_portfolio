@@ -16,7 +16,6 @@ export default function Droplets({ count = 30 }: { count?: number }) {
       {Array(count).fill(0).map((_, i) => {
         const size = 20 + Math.random(); // Larger droplets (50-200px)
         const left = Math.random() * 100;
-        const top = Math.random() * 100;
         const opacity = 0.2 + Math.random() * 0.3; // Semi-transparent
         
         return (

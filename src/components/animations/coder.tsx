@@ -1,7 +1,12 @@
 import { useGLTF } from '@react-three/drei'
-import * as THREE from 'three'
 
-export const Laptop = (props: JSX.IntrinsicElements['group']) => {
+type GroupProps = {
+  scale?: number | [number, number, number];
+  rotation?: [number, number, number];
+  position?: [number, number, number];
+}
+
+export const Laptop = (props: GroupProps) => {
   const { scene } = useGLTF('/models/laptop.glb')
   return <primitive object={scene} {...props} />
 }
