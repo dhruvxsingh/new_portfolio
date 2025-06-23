@@ -5,6 +5,7 @@ import { Environment } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import ExperienceSection from '@/components/ExperienceSection';
 import ProjectsSection from '@/components/ProjectSection';
+import Contact from '@/components/Contact'
 import { OrbitControls } from '@react-three/drei'
 import { Basketball } from '@/components/animations/basketball'
 import { Laptop } from '@/components/animations/coder'
@@ -124,7 +125,7 @@ export default function Portfolio() {
 
           <section id="about" className="min-h-screen bg-black p-8 flex flex-col ">
         <motion.h2 
-                className="text-4xl sticky top-0 text-silver-shiny md:text-6xl font-bold mb-14 text-center"
+                className="text-4xl text-silver-shiny md:text-6xl font-bold mb-14 text-center"
                 initial={{ x: -100 }}
                 whileInView={{ x: 0 }}
                 transition={{ type: 'spring' }}
@@ -225,6 +226,7 @@ export default function Portfolio() {
   </section>
   <ExperienceSection />
   <ProjectsSection/>
+  <Contact/>
         </main>
       </div>
       )}
