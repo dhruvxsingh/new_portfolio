@@ -74,7 +74,7 @@ const projects: Project[] = [
 
 const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
   return (
-    <div id ="project" className="flex-shrink-0 w-[calc(100vw-128px)] max-w-[450px] h-[500px] mr-8">
+    <div id ="project" className="flex-shrink-0 w-[calc(100vw-32px)] sm:w-[calc(100vw-64px)] md:w-[calc(100vw-128px)] max-w-[320px] sm:max-w-[380px] md:max-w-[450px] h-[450px] sm:h-[480px] md:h-[500px] mr-4 sm:mr-6 md:mr-8">
       <div className="h-full bg-gray-800/40 backdrop-blur-lg rounded-2xl overflow-hidden border border-gray-200 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:border-gray-200 group">
         {/* Image Section - 45% */}
         <div className="relative h-[45%] w-full overflow-hidden bg-gradient-to-br from-gray-700/50 to-gray-800/50">
@@ -90,7 +90,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         <div className="h-[55%] p-6 flex flex-col">
           {/* Title and Links Row */}
           <div className="flex justify-between items-start mb-4">
-            <h3 className="text-xl font-bold text-blue-gradient group-hover: transition-colors duration-300">
+            <h3 className="text-lg sm:text-xl font-bold text-blue-gradient group-hover: transition-colors duration-300">
               {project.name}
             </h3>
             <div className="flex gap-3">
@@ -101,7 +101,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                 className="text-gray-400 hover:text-silver-shiny transition-colors duration-200"
                 aria-label="GitHub"
               >
-                <i className="fab fa-github text-xl"></i>
+                <i className="fab fa-github text-lg sm:text-xl"></i>
               </a>
               <a
                 href={project.liveUrl}
@@ -110,7 +110,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
                 className="text-gray-400 hover:text-silver-shiny transition-colors duration-200"
                 aria-label="Live Demo"
               >
-                <i className="fas fa-external-link-alt text-lg"></i>
+                <i className="fas fa-external-link-alt text-base sm:text-lg"></i>
               </a>
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-b-xl" />
             </div>
@@ -170,8 +170,8 @@ const ProjectsSection: React.FC = () => {
       {/* Sticky Container */}
       <div className="sticky top-0 h-screen flex flex-col overflow-hidden">
         {/* Heading */}
-        <div className="flex-shrink-0 pt-20 pb-12 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-silver-shiny">
+        <div className="flex-shrink-0 pt-16 sm:pt-20 pb-8 sm:pb-12 text-center">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-silver-shiny">
             Projects
           </h2>
         </div>
@@ -180,7 +180,7 @@ const ProjectsSection: React.FC = () => {
         <div className="flex-1 relative">
           <motion.div
             style={{ x }}
-            className="absolute top-0 left-0 h-full flex items-center pl-16 will-change-transform"
+            className="absolute top-0 left-0 h-full flex items-center pl-4 sm:pl-8 md:pl-16 will-change-transform"
           >
             {/* Project Cards */}
             {projects.map((project) => (

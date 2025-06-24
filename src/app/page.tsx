@@ -46,7 +46,7 @@ export default function Portfolio() {
           initial="hidden"
           animate="visible"
           transition={{ staggerChildren: 0.1 }}
-          className="fixed w-full z-50 bg-black/80 text-silver-shiny backdrop-blur-sm p-4 flex justify-center gap-8"
+          className="fixed w-full z-50 bg-black/80 text-silver-shiny backdrop-blur-sm p-4 flex justify-center gap-2 sm:gap-4 md:gap-8 text-sm sm:text-base"
         >
           <motion.div
     initial={{ opacity: 0 }}
@@ -55,7 +55,7 @@ export default function Portfolio() {
       y: isScrolled ? 0 : 20
     }}
     transition={{ duration: 0.3 }}
-    className="absolute left-4 text-2xl font-bold text-silver-shiny"
+    className="absolute left-4 text-2xl font-bold text-silver-shiny hidden sm:block"
   >
     DHRUV
   </motion.div>
@@ -87,7 +87,7 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="h-screen flex flex-col justify-center items-center p-8 relative overflow-hidden"
+            className="h-screen flex flex-col justify-center items-center px-2 py-8 sm:px-4 sm:py-12 md:px-8 relative overflow-hidden"
           >
             <Droplets count={20} />
             
@@ -95,7 +95,7 @@ export default function Portfolio() {
               initial={{ y: -50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="text-6xl md:text-8xl text-silver-shiny font-bold mb-2 relative z-10"
+              className="text-4xl sm:text-6xl md:text-8xl text-silver-shiny font-bold mb-2 relative z-10 text-center"
             >
               HI, I&apos;M DHRUV
             </motion.h1>
@@ -109,7 +109,7 @@ export default function Portfolio() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.8 }}
               transition={{ delay: 0.7 }}
-              className="text-xl text-silver-shiny md:text-2xl mb-8 relative z-10"
+              className="text-lg sm:text-xl md:text-2xl text-silver-shiny mb-8 relative z-10"
             >
               Tech & Sports Enthusiast
             </motion.p>
@@ -117,7 +117,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1, duration: 0.5 }}
-              className="flex justify-center gap-20 mt-16 relative z-10 text-3xl"
+              className="flex justify-center gap-8 sm:gap-12 md:gap-20 mt-8 sm:mt-12 md:mt-16 relative z-10 text-2xl sm:text-3xl"
             >
               {[
                 { name: 'GitHub', url: 'https://github.com/dhruvxsingh/', icon: 'fab fa-github' },
@@ -142,7 +142,7 @@ export default function Portfolio() {
             </motion.div>
           </motion.section>
 
-          <section id="about" className="min-h-screen bg-black p-8 flex flex-col ">
+          <section id="about" className="min-h-screen bg-black p-4 sm:p-6 md:p-8 flex flex-col ">
         <motion.h2 
                 className="text-4xl text-silver-shiny md:text-6xl font-bold mb-14 text-center"
                 initial={{ x: -100 }}
@@ -152,23 +152,23 @@ export default function Portfolio() {
                 About Me
               </motion.h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start"> {/* Changed to items-start */}
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-8 items-start"> {/* Changed to items-start */}
     {/* Basketball - First Column */}
     <motion.div className="flex flex-col items-center">
-      <p className="text-silver-shiny text-xl mt-4">Rotate(3D)</p>
-      <div className="w-full h-[300px]">
+      <p className="text-silver-shiny text-base sm:text-lg md:text-xl mt-4">Rotate(3D)</p>
+      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px]">
         <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
           <Environment preset="studio" background blur={0.2} />
           <Basketball scale={0.8} rotation={[0, Math.PI/1.6, 0]} />
           <OrbitControls enableZoom={false} />
         </Canvas>
       </div>
-      <p className="text-silver-shiny text-xl mt-4">Baller at Day</p>
+      <p className="text-silver-shiny text-base sm:text-lg md:text-xl mt-4">Baller at Day</p>
     </motion.div>
 
     {/* Center Text - Second Column */}
-    <div className="flex flex-col justify-center h-[300px]"> {/* Added fixed height */}
-      <motion.p className="text-lg bg-gradient-to-r from-gray-500 via-gray-300 to-gray-500 bg-clip-text text-transparent"
+    <div className="flex flex-col justify-center h-auto md:h-[300px]"> {/* Added fixed height */}
+      <motion.p className="text-sm sm:text-base md:text-lg bg-gradient-to-r from-gray-500 via-gray-300 to-gray-500 bg-clip-text text-transparent"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 0.8 }}
                 transition={{ delay: 0.3 }}
@@ -179,21 +179,21 @@ export default function Portfolio() {
 
     {/* Laptop - Third Column */}
     <motion.div className="flex flex-col items-center">
-      <p className="text-silver-shiny text-xl mt-4">Rotate(3D)</p>
-      <div className="w-full h-[300px]">
+      <p className="text-silver-shiny text-base sm:text-lg md:text-xl mt-4">Rotate(3D)</p>
+      <div className="w-full h-[200px] sm:h-[250px] md:h-[300px]">
         <Canvas camera={{ position: [0, 0, 6], fov: 50 }}>
           <Environment preset="studio" background blur={0.2} />
           <Laptop scale={0.8} rotation={[0.5, -0.5, 0]} />
           <OrbitControls enableZoom={false} />
         </Canvas>
       </div>
-      <p className="text-silver-shiny text-xl mt-4">Coder at Night</p>
+      <p className="text-silver-shiny text-base sm:text-lg md:text-xl mt-4">Coder at Night</p>
     </motion.div>
   </div>
       </section>
 
           {/* Tech Stack Section */}
-  <section id="tech-stack" className="min-h-screen bg-black p-8 flex flex-col">
+  <section id="tech-stack" className="min-h-screen bg-black p-4 sm:p-6 md:p-8 flex flex-col">
     <motion.h2 
       className="text-4xl text-silver-shiny md:text-6xl font-bold mb-14 text-center"
       initial={{ x: -100 }}
@@ -203,7 +203,7 @@ export default function Portfolio() {
       Tech Stack
     </motion.h2>
 
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-6 max-w-6xl mx-auto">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4 md:gap-6 max-w-6xl mx-auto">
       {[
         { name: 'Next.js', icon: 'fab fa-react' },
         { name: 'TypeScript', icon: 'fas fa-code' },
@@ -237,8 +237,8 @@ export default function Portfolio() {
           className="bg-gray-900/50 hover:bg-gray-800/80 border border-gray-700 rounded-lg p-4 aspect-square flex flex-col items-center justify-center gap-2 transition-all"
           whileHover={{ y: -5, scale: 1.05 }}
         >
-          <i className={`${tech.icon} text-silver-shiny text-4xl`}></i>
-          <span className="text-silver-shiny text-center">{tech.name}</span>
+          <i className={`${tech.icon} text-silver-shiny text-2xl sm:text-3xl md:text-4xl`}></i>
+          <span className="text-silver-shiny text-xs sm:text-sm md:text-base text-center">{tech.name}</span>
         </motion.div>
       ))}
     </div>

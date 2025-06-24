@@ -61,24 +61,24 @@ const ExperienceSection = () => {
   ];
 
   return (
-    <div ref={containerRef} id = "experience" className="h-[500vh] relative">
+    <div ref={containerRef} id = "experience" className="h-[300vh] sm:h-[400vh] md:h-[500vh] relative">
       <motion.div
         style={{ y: containerY }}
         className="sticky top-0 left-0 w-full h-screen z-10"
       >
-        <div className="flex h-full">
+        <div className="flex flex-col md:flex-row h-full">
           {/* Left: Title */}
           <motion.div
             style={{ opacity: titleOpacity }}
-            className="w-1/2 flex items-center justify-center"
+            className="w-full md:w-1/2 flex items-center justify-center p-4 md:p-0"
           >
-            <h1 className="text-6xl md:text-8xl font-bold text-silver-shiny tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold text-silver-shiny tracking-tight text-center md:text-left">
               Experience
             </h1>
           </motion.div>
 
           {/* Right: Cards */}
-          <div className="w-1/2 flex items-center justify-center relative">
+          <div className="w-full md:w-1/2 flex items-center justify-center relative p-4 md:p-0">
             <div className="relative w-full max-w-[400px] h-[32rem]">
               {experiences.map((exp, index) => (
                 <motion.div

@@ -90,8 +90,8 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id = "contact" className="min-h-screen relative">
-      <div className="container mx-auto px-6 py-28 pb-0">
+    <section id = "contact" className="min-h-screen relative ">
+      <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-20 md:py-28 pb-40 sm:pb-32 md:pb-0">
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           {/* Left Side - Text */}
@@ -102,13 +102,13 @@ const ContactSection: React.FC = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-silver-shiny">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-silver-shiny">
               Get In Touch
             </h2>
-            <p className="text-xl text-gray-300 leading-relaxed">
+            <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
               Feel free to drop your message and I will get back to you soon!
             </p>
-            <p className="text-gray-gradient">
+            <p className="text-sm sm:text-base text-gray-gradient">
               Whether you have a question, want to collaborate, or just want to say hi, 
               I&apos;d love to hear from you. Fill out the form and I&apos;ll respond as quickly as possible.
             </p>
@@ -207,7 +207,7 @@ const ContactSection: React.FC = () => {
         <div className="container mx-auto px-6 py-8">
           <div className="flex flex-col items-center gap-2">
             {/* Social Links */}
-            <div className="flex items-center gap-10">
+            <div className="flex items-center gap-4 sm:gap-6 md:gap-10">
               {socialLinks.map((link) => (
                 <motion.a
                   key={link.name}
@@ -219,7 +219,7 @@ const ContactSection: React.FC = () => {
                   className="text-gray-400 hover:text-silver-shiny transition-colors duration-200"
                   aria-label={link.name}
                 >
-                  <i className={`${link.icon} text-xl`}></i>
+                  <i className={`${link.icon} text-lg sm:text-xl`}></i>
                 </motion.a>
               ))}
             </div>
