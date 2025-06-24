@@ -6,8 +6,8 @@ import FontAwesomeCDN from "@/components/FontAwesomeCDN";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "My Creative Portfolio",
-  description: "A visually stunning portfolio showcase",
+  title: "Dhruv Singh",
+  description: "A visually appealing portfolio",
 };
 
 export default function RootLayout({
