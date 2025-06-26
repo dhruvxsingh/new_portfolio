@@ -23,7 +23,7 @@ const projects: Project[] = [
     image: '/img1.jpg',
     tools: ['React', 'FastApi', 'PostgreSql', 'NLP', 'Supabase'],
     githubUrl: 'https://github.com/dhruvxsingh/ai_resume_screener',
-    liveUrl: 'https://example.com',
+    liveUrl: 'https://job-board-eta-indol.vercel.app/',
   },
   {
     id: 2,
